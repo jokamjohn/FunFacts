@@ -37,6 +37,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:text="@string/button_next"
+        android:textColor="#ff51b46d"
         android:textAllCaps="false"/>
 
 </RelativeLayout>

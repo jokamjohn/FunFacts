@@ -34,7 +34,7 @@ public class FunFactActivityFragment extends Fragment {
 
         final RelativeLayout mLayout =(RelativeLayout)rootVeiw.findViewById(R.id.relative_layout);
         final TextView factText = (TextView)rootVeiw.findViewById(R.id.factTextView);
-        Button factbutton = (Button)rootVeiw.findViewById(R.id.show_facts_button);
+        final Button factbutton = (Button)rootVeiw.findViewById(R.id.show_facts_button);
         View.OnClickListener factListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,11 +42,13 @@ public class FunFactActivityFragment extends Fragment {
                 int color = mColorWheel.getColor();
                 mLayout.setBackgroundColor(color);
                 factText.setText(fact);
+                factbutton.setTextColor(color);
 
             }
         };
 
         factbutton.setOnClickListener(factListener);
+
         return rootVeiw;
     }
 }
