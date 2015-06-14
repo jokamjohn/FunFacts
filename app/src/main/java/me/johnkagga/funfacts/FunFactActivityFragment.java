@@ -52,19 +52,10 @@ public class FunFactActivityFragment extends Fragment {
                 String fact = "";
                 //Adding a Random generator
                 Random randomGenerator = new Random();
-                int randomNumber = randomGenerator.nextInt(3);
-                if (randomNumber == 0){
-                    fact = "Ants stretch when they wake up in the morning";
-
-                }else if (randomNumber == 1){
-                    fact = "Ostriches run faster than horses";
-
-                }else if (randomNumber == 2){
-                    fact = "Olympic medals are actually made mostly of silver";
-
-                }else {
-                    fact = "Something wrong happened";
-                }
+                //Generating the random number and using the array length as the values
+                int randomNumber = randomGenerator.nextInt(facts.length);
+                // populating the facts
+                fact = facts[randomNumber];
                 factText.setText(fact);
 
             }
