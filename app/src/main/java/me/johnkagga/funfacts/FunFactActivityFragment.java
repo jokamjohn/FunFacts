@@ -30,11 +30,11 @@ public class FunFactActivityFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootVeiw = inflater.inflate(R.layout.fragment_main, container, false);
+        View rootveiw = inflater.inflate(R.layout.fragment_main, container, false);
 
-        final RelativeLayout mLayout =(RelativeLayout)rootVeiw.findViewById(R.id.relative_layout);
-        final TextView factText = (TextView)rootVeiw.findViewById(R.id.factTextView);
-        final Button factbutton = (Button)rootVeiw.findViewById(R.id.show_facts_button);
+        final RelativeLayout mLayout =(RelativeLayout)rootveiw.findViewById(R.id.relative_layout);
+        final TextView factText = (TextView)rootveiw.findViewById(R.id.factTextView);
+        final Button factbutton = (Button)rootveiw.findViewById(R.id.show_facts_button);
         View.OnClickListener factListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,6 +49,6 @@ public class FunFactActivityFragment extends Fragment {
 
         factbutton.setOnClickListener(factListener);
 
-        return rootVeiw;
+        return rootveiw;
     }
 }

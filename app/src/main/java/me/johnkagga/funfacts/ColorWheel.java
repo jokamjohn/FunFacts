@@ -34,7 +34,7 @@ public class ColorWheel {
         int randomNumber = randomGenerator.nextInt(mColor.length);
         // populating the mColor
         color = mColor[randomNumber];
-        //convertingthe string to int
+        //converting the string to int
         int colorAsInt = Color.parseColor(color);
 
         return colorAsInt;
