@@ -1,6 +1,5 @@
 package me.johnkagga.funfacts;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -17,7 +16,7 @@ import android.widget.TextView;
 public class FunFactActivityFragment extends Fragment {
 
     FunBook mFunBook = new FunBook();
-
+    ColorWheel mColorWheel = new ColorWheel();
 
     public FunFactActivityFragment() {
     }
@@ -40,7 +39,8 @@ public class FunFactActivityFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 String fact = mFunBook.getFact();
-                mLayout.setBackgroundColor(Color.RED);
+                int color = mColorWheel.getColor();
+                mLayout.setBackgroundColor(color);
                 factText.setText(fact);
 
             }

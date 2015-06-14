@@ -26,7 +26,7 @@ public class FunBook {
         Random randomGenerator = new Random();
         //Generating the random number and using the array length as the values
         int randomNumber = randomGenerator.nextInt(mFacts.length);
-        // populating the mFacts
+        // populating the mColor
         fact = mFacts[randomNumber];
 
         return fact;
