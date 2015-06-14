@@ -35,6 +35,20 @@ public class FunFactActivityFragment extends Fragment {
         View.OnClickListener factListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String [] facts = {
+                        "Ants stretch when they wake up in the morning",
+                        "Ostriches run faster than horses",
+                        "Olympic medals are actually made mostly of silver",
+                        "You are born with 300 bones, by the time you adult you will hav 206",
+                        "It takes about 8 minutes for the light from the sun to reach the earth",
+                        "Some bamboo plants can grow 8 metres a day",
+                        "Tanzania is bigger than Uganda",
+                        "some penguins can leap 2-3 hours a day from the water",
+                        "John Kagga is Jokam",
+                        "My mummy is the best mummy ever"
+                };
+
+
                 String fact = "";
                 //Adding a Random generator
                 Random randomGenerator = new Random();
