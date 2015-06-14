@@ -14,6 +14,8 @@ import android.widget.TextView;
  */
 public class FunFactActivityFragment extends Fragment {
 
+    FunBook mFunBook = new FunBook();
+
     public FunFactActivityFragment() {
     }
 
@@ -33,8 +35,8 @@ public class FunFactActivityFragment extends Fragment {
         View.OnClickListener factListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                factText.setText(' ');
+                String fact = mFunBook.getFact();
+                factText.setText(fact);
 
             }
         };
