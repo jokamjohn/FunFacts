@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Random;
+
 
 /**
  * A placeholder fragment containing a simple view.
@@ -33,7 +35,11 @@ public class FunFactActivityFragment extends Fragment {
         View.OnClickListener factListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String fact = "Ostriches run faster than horses";
+                String fact = "";
+                //Adding a Random generator
+                Random randomGenerator = new Random();
+                int randomNumber = randomGenerator.nextInt(3);
+                fact =  randomNumber + "";
                 factText.setText(fact);
 
             }
