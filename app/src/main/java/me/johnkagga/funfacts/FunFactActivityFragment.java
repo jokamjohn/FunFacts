@@ -15,40 +15,51 @@ import android.widget.TextView;
  */
 public class FunFactActivityFragment extends Fragment {
 
+    private static final String KEY_FACT = "KEY_FACT";
+    private static final String KEY_COLOR = "KEY_COLOR";
     FunBook mFunBook = new FunBook();
     ColorWheel mColorWheel = new ColorWheel();
+    private String mFact;
+    private int mColor;
 
     public FunFactActivityFragment() {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootveiw = inflater.inflate(R.layout.fragment_main, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
-        final RelativeLayout mLayout =(RelativeLayout)rootveiw.findViewById(R.id.relative_layout);
-        final TextView factText = (TextView)rootveiw.findViewById(R.id.factTextView);
-        final Button factbutton = (Button)rootveiw.findViewById(R.id.show_facts_button);
+        final RelativeLayout mLayout =(RelativeLayout)rootView.findViewById(R.id.relative_layout);
+        final TextView factText = (TextView)rootView.findViewById(R.id.factTextView);
+        final Button factbutton = (Button)rootView.findViewById(R.id.show_facts_button);
         View.OnClickListener factListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String fact = mFunBook.getFact();
-                int color = mColorWheel.getColor();
-                mLayout.setBackgroundColor(color);
-                factText.setText(fact);
-                factbutton.setTextColor(color);
+                mFact = mFunBook.getFact();
+                mColor = mColorWheel.getColor();
+                mLayout.setBackgroundColor(mColor);
+                factText.setText(mFact);
+                factbutton.setTextColor(mColor);
 
             }
         };
 
         factbutton.setOnClickListener(factListener);
 
-        return rootveiw;
+        return rootView;
     }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        //Saving the fact state
+        outState.putString(KEY_FACT,mFact);
+
+        //Saving the color state
+        outState.putInt(KEY_COLOR,mColor);
+    }
+
+
 }
