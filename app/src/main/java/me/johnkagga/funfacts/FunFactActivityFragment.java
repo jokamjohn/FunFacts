@@ -1,5 +1,6 @@
 package me.johnkagga.funfacts;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -25,8 +26,9 @@ public class FunFactActivityFragment extends Fragment {
     private TextView factText;
     private Button mFactButton;
 
-    private String mFact;
-    private int mColor;
+    //Setting default values to prevent bug when app rotated when started
+    private String mFact = mFunBook.mFacts[0];
+    private int mColor = Color.parseColor(mColorWheel.mColor[8]);
 
     public FunFactActivityFragment() {
     }
