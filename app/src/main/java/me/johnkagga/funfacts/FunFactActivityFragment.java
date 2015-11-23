@@ -17,8 +17,14 @@ public class FunFactActivityFragment extends Fragment {
 
     private static final String KEY_FACT = "KEY_FACT";
     private static final String KEY_COLOR = "KEY_COLOR";
+
     FunBook mFunBook = new FunBook();
     ColorWheel mColorWheel = new ColorWheel();
+
+    private RelativeLayout mLayout;
+    private TextView factText;
+    private Button mFactButton;
+
     private String mFact;
     private int mColor;
 
@@ -30,22 +36,23 @@ public class FunFactActivityFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
-        final RelativeLayout mLayout =(RelativeLayout)rootView.findViewById(R.id.relative_layout);
-        final TextView factText = (TextView)rootView.findViewById(R.id.factTextView);
-        final Button factbutton = (Button)rootView.findViewById(R.id.show_facts_button);
+        mLayout =(RelativeLayout)rootView.findViewById(R.id.relative_layout);
+        factText = (TextView)rootView.findViewById(R.id.factTextView);
+        mFactButton = (Button)rootView.findViewById(R.id.show_facts_button);
         View.OnClickListener factListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mFact = mFunBook.getFact();
                 mColor = mColorWheel.getColor();
+
                 mLayout.setBackgroundColor(mColor);
                 factText.setText(mFact);
-                factbutton.setTextColor(mColor);
+                mFactButton.setTextColor(mColor);
 
             }
         };
 
-        factbutton.setOnClickListener(factListener);
+        mFactButton.setOnClickListener(factListener);
 
         return rootView;
     }
@@ -61,5 +68,20 @@ public class FunFactActivityFragment extends Fragment {
         outState.putInt(KEY_COLOR,mColor);
     }
 
+    @Override
+    public void onViewStateRestored(Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
 
+        //Getting saved fields and also updating the views
+        if (savedInstanceState != null)
+        {
+            mFact = savedInstanceState.getString(KEY_FACT);
+            factText.setText(mFact);
+
+            mColor = savedInstanceState.getInt(KEY_COLOR);
+            mLayout.setBackgroundColor(mColor);
+            mFactButton.setTextColor(mColor);
+        }
+
+    }
 }
